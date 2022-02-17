@@ -1,3 +1,4 @@
+using FlightManager.Business.Flights;
 using FlightManager.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddTransient<IFlightsService, FlightsService>();
 
 builder.Services.AddDbContextFactory<FlightManagerContext>((provider, options) =>
 {
