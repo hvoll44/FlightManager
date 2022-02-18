@@ -16,6 +16,10 @@ public static class DbInitializer
         {
             new Flight{Origin = "DEN", Destination = "LAX"},
             new Flight{Origin = "ORD", Destination = "JFK"},
+            new Flight{Origin = "ORD", Destination = "LAX"},
+            new Flight{Origin = "ATL", Destination = "ORF"},
+            new Flight{Origin = "DEN", Destination = "RIC"},
+            new Flight{Origin = "IAH", Destination = "SFO"},
         };
 
         context.Flights.AddRange(flights);
