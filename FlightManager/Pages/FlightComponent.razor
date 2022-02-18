@@ -1,9 +1,43 @@
 ﻿<h3>FlightComponent</h3>
 
-@foreach (var flight in flights)
-{
-    <div>
-        <span>Origin: @flight.Origin</span>
-        <span>Destination: @flight.Destination</span>
-    </div>
-}
+<MudTabs Outlined="true" Position="@Position.Left" Rounded="true" Border="true"
+    ApplyEffectsToContainer="true" Class="mt-8" PanelClass="pa-6">
+    @foreach (var flight in flights)
+    {
+        <MudTabPanel Text=@($"{flight.Origin} - {flight.Destination}")>
+            <MudTimeline TimelineAlign="TimelineAlign.Start">
+                <MudTimelineItem Color="Color.Dark" Elevation="25">
+                    <ItemOpposite>
+                        <MudText Color="Color.Dark" Typo="Typo.h6">Departure</MudText>
+                    </ItemOpposite>
+                    <ItemContent>
+                        <MudPaper Elevation="0" Class="mt-n1">
+                            <MudText Color="Color.Dark" Typo="Typo.h6" GutterBottom="true">@flight.Origin</MudText>
+                            <MudText Typo="Typo.body2">Departure airport under construction at gate. Expect delay.</MudText>
+                            <MudText Typo="Typo.body2">Pilots have reported into Flight-Ops and are conducting pre-checks.</MudText>
+                        </MudPaper>
+                    </ItemContent>
+                </MudTimelineItem>
+                
+                <MudTimelineItem Color="Color.Success" Elevation="25">
+                    <ItemOpposite>
+                        <MudText Color="Color.Success" Typo="Typo.h6" GutterBottom="true">Flight</MudText>
+                    </ItemOpposite>
+                </MudTimelineItem>
+                
+                <MudTimelineItem Color="Color.Secondary" Elevation="25">
+                    <ItemOpposite>
+                        <MudText Color="Color.Secondary" Typo="Typo.h6" GutterBottom="true">Arrival</MudText>
+                    </ItemOpposite>
+                    <ItemContent>
+                        <MudPaper Elevation="0" Class="mt-n1">
+                            <MudText Color="Color.Secondary" Typo="Typo.h6" GutterBottom="true">@flight.Destination</MudText>
+                            <MudText Typo="Typo.body2">Weather report is clear and sunny.</MudText>
+                            <MudText Typo="Typo.body2">Plane will shuttle to bay 5 for sheduled maintenance after passengers disembark.</MudText>
+                        </MudPaper>
+                    </ItemContent>
+                </MudTimelineItem>
+            </MudTimeline>
+        </MudTabPanel>
+    }    
+</MudTabs>
