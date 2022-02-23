@@ -23,7 +23,10 @@ public class FlightsService : IFlightsService
     {
         using var context = _db.CreateDbContext();
 
-        return context.Flights.ToList().Select(f => f.ToModel()).ToList();
+        return context.Flights
+            .Include(f => f.Origin)
+            .Include(f => f.Destination)
+            .ToList().Select(f => f.ToModel()).ToList();
     }
 
     public async Task<FlightViewModel> GetFlightByIdAsync(int id)

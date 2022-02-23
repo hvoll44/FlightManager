@@ -13,8 +13,8 @@
                     <ItemContent>
                         <MudPaper Elevation="0" Class="mt-n1">
                             <MudText Color="Color.Dark" Typo="Typo.h6" GutterBottom="true">@flight.Origin</MudText>
-                            <MudText Typo="Typo.body2">Departure airport under construction at gate. Expect delay.</MudText>
-                            <MudText Typo="Typo.body2">Pilots have reported into Flight-Ops and are conducting pre-checks.</MudText>
+                            <MudText Typo="Typo.body2">@flight.OriginNotes</MudText>
+                            <MudText Typo="Typo.body2">Departure: @flight.Departure</MudText>
                         </MudPaper>
                     </ItemContent>
                 </MudTimelineItem>
@@ -32,8 +32,8 @@
                     <ItemContent>
                         <MudPaper Elevation="0" Class="mt-n1">
                             <MudText Color="Color.Secondary" Typo="Typo.h6" GutterBottom="true">@flight.Destination</MudText>
-                            <MudText Typo="Typo.body2">Weather report is clear and sunny.</MudText>
-                            <MudText Typo="Typo.body2">Plane will shuttle to bay 5 for sheduled maintenance after passengers disembark.</MudText>
+                            <MudText Typo="Typo.body2">@flight.DestinationNotes</MudText>
+                            <MudText Typo="Typo.body2">Arrival: @flight.Arrival</MudText>
                         </MudPaper>
                     </ItemContent>
                 </MudTimelineItem>
