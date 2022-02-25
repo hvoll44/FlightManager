@@ -3,7 +3,9 @@
 public class Flight
 {
     public int FlightID { get; set; }
-    
+
+    public int AircraftID { get; set; }
+
     public int OriginAirportID { get; set; }
 
     public int DestinationAirportID { get; set; }
@@ -16,4 +18,6 @@ public class Flight
     public Airport Origin { get; set; } = new();
     
     public Airport Destination { get; set; } = new();
+
+    public Aircraft Aircraft { get; set; } = new();
 }

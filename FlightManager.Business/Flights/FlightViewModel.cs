@@ -21,13 +21,6 @@ public class FlightViewModel
 
 public static class FlightViewModelMappers
 {
-    //public static Flight ToDto(this FlightViewModel model) => new Flight()
-    //{
-    //    FlightID = model.FlightID,
-    //    Origin = model.Origin,
-    //    Destination = model.Destination
-    //};
-    
     public static FlightViewModel ToModel(this Flight model) => new()
     {
         FlightID = model.FlightID,

@@ -6,6 +6,7 @@
     {
         <MudTabPanel Text=@($"{flight.Origin} - {flight.Destination}")>
             <MudTimeline TimelineAlign="TimelineAlign.Start">
+                
                 <MudTimelineItem Color="Color.Dark" Elevation="25">
                     <ItemOpposite>
                         <MudText Color="Color.Dark" Typo="Typo.h6">Departure</MudText>
@@ -21,7 +22,9 @@
                 
                 <MudTimelineItem Color="Color.Success" Elevation="25">
                     <ItemOpposite>
-                        <MudText Color="Color.Success" Typo="Typo.h6" GutterBottom="true">Flight</MudText>
+                        <MudText Color="Color.Success" Typo="Typo.h6" GutterBottom="true">Flight</MudText>                    
+                        <MudText Typo="Typo.body2">@flight.Arrival.Subtract(flight.Departure).Hours Hours</MudText>
+                        <MudText Typo="Typo.body2">@flight.Arrival.Subtract(flight.Departure).Minutes Minutes</MudText>
                     </ItemOpposite>
                 </MudTimelineItem>
                 
@@ -37,6 +40,7 @@
                         </MudPaper>
                     </ItemContent>
                 </MudTimelineItem>
+
             </MudTimeline>
         </MudTabPanel>
     }    

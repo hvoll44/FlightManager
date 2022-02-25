@@ -30,15 +30,24 @@ public static class DbInitializer
 
         var flights = new Flight[]
         {
-            new Flight{OriginAirportID = 1, DestinationAirportID = 2, Departure = DateTime.Now, Arrival = DateTime.Now.AddHours(3)},
-            new Flight{OriginAirportID = 1, DestinationAirportID = 2, Departure = DateTime.Now, Arrival = DateTime.Now.AddHours(3)},
-            new Flight{OriginAirportID = 1, DestinationAirportID = 2, Departure = DateTime.Now, Arrival = DateTime.Now.AddHours(3)},
-            new Flight{OriginAirportID = 1, DestinationAirportID = 2, Departure = DateTime.Now, Arrival = DateTime.Now.AddHours(3)},
-            new Flight{OriginAirportID = 1, DestinationAirportID = 2, Departure = DateTime.Now, Arrival = DateTime.Now.AddHours(3)},
-            new Flight{OriginAirportID = 1, DestinationAirportID = 2, Departure = DateTime.Now, Arrival = DateTime.Now.AddHours(3)},
+            new Flight{AircraftID = 1, OriginAirportID = 1, DestinationAirportID = 2, Departure = DateTime.Now, Arrival = DateTime.Now.AddHours(3)},
+            new Flight{AircraftID = 2, OriginAirportID = 1, DestinationAirportID = 2, Departure = DateTime.Now, Arrival = DateTime.Now.AddHours(3)},
+            new Flight{AircraftID = 1, OriginAirportID = 1, DestinationAirportID = 2, Departure = DateTime.Now, Arrival = DateTime.Now.AddHours(3)},
+            new Flight{AircraftID = 2, OriginAirportID = 1, DestinationAirportID = 2, Departure = DateTime.Now, Arrival = DateTime.Now.AddHours(3)},
+            new Flight{AircraftID = 1, OriginAirportID = 1, DestinationAirportID = 2, Departure = DateTime.Now, Arrival = DateTime.Now.AddHours(3)},
+            new Flight{AircraftID = 1, OriginAirportID = 1, DestinationAirportID = 2, Departure = DateTime.Now, Arrival = DateTime.Now.AddHours(3)},
         };
 
         context.Flights.AddRange(flights);
+        context.SaveChanges();
+
+        var aircraft = new Aircraft[]
+        {
+            new Aircraft{Make = "Boeing", Model = "747", YearBuilt = 1993, SerialNumber="7dkd7d898ss9"},
+            new Aircraft{Make = "Airbus", Model = "A320", YearBuilt = 2006, SerialNumber="34djk3l998s987"},
+        };
+
+        context.Aircrafts.AddRange(aircraft);
         context.SaveChanges();
     }
 }
