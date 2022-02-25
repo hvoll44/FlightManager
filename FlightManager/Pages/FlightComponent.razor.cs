@@ -8,11 +8,11 @@ public sealed partial class FlightComponent
     private List<FlightViewModel> flights = new();
 
     [Inject]
-    public IFlightsService FlightsService { get; set; }
+    public IFlightsService? FlightsService { get; set; }
 
     protected override void OnInitialized()
     {
-        flights = FlightsService.GetFlightsAsync().Result;
+        flights = FlightsService!.GetFlightsAsync().Result;
 
         base.OnInitialized();
     }

@@ -1,7 +1,6 @@
+using FlightManager.Business.Airports;
 using FlightManager.Business.Flights;
 using FlightManager.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
 
@@ -12,6 +11,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddTransient<IFlightsService, FlightsService>();
+builder.Services.AddTransient<IAirportsService, AirportsService>();
 
 builder.Services.AddMudServices();
 

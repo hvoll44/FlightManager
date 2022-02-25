@@ -26,15 +26,16 @@ public class FlightsService : IFlightsService
         return context.Flights
             .Include(f => f.Origin)
             .Include(f => f.Destination)
-            .ToList().Select(f => f.ToModel()).ToList();
+            .Select(f => f.ToModel())
+            .ToList();
     }
 
     public async Task<FlightViewModel> GetFlightByIdAsync(int id)
     {
         using var context = _db.CreateDbContext();
 
-        var flight = context.Flights.First(f => f.FlightID == id);
-
-        return flight.ToModel();
+        return context.Flights
+            .First(f => f.FlightID == id)
+            .ToModel();
     }
 }

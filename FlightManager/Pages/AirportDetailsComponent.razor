@@ -1,0 +1,16 @@
+﻿@page "/airport/{airportcode}"
+
+<h3>Arrivals</h3>
+
+<MudTable Items="@_airport.Arrivals" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info">
+    <HeaderContent>
+        <MudTh>FlightID</MudTh>
+        <MudTh>Origin</MudTh>
+        <MudTh>Arrival</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="FlightID">@context.FlightID</MudTd>
+        <MudTd DataLabel="Origin">@context.Origin</MudTd>
+        <MudTd DataLabel="Arrival">@context.Arrival</MudTd>
+    </RowTemplate>
+</MudTable>

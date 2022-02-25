@@ -1,0 +1,20 @@
+﻿<h3>AirportComponent</h3>
+
+<MudTable Items="@_airports" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info">
+    <HeaderContent>
+        <MudTh>AirportCode</MudTh>
+        <MudTh>Notes</MudTh>
+        <MudTh>Departures</MudTh>
+        <MudTh>Arrivals</MudTh>
+        <MudTh>Details</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="AirportCode">@context.AirportCode</MudTd>
+        <MudTd DataLabel="Notes">@context.Notes</MudTd>
+        <MudTd DataLabel="Departures">@context.Departures.Count</MudTd>
+        <MudTd DataLabel="Arrivals">@context.Arrivals.Count</MudTd>
+        <MudTd DataLabel="Details">
+            <MudLink Href=@($"/airport/{context.AirportCode}")>Details</MudLink>
+        </MudTd>
+    </RowTemplate>
+</MudTable>
